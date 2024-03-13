@@ -1,16 +1,16 @@
-# weather_app
+Simple Weather App with Flutter, MVVM, and OpenWeatherMap API
 
-A new Flutter project.
+ This repository showcases a basic weather application built using Flutter, utilizing the Model-View-ViewModel (MVVM) architectural pattern, and fetching data from the OpenWeatherMap API.
 
-## Getting Started
+ Features:
 
-This project is a starting point for a Flutter application.
+ * Displays current weather information and forecast for a chosen location.
+ * Fetches weather data using the OpenWeatherMap API.
+ * Utilizes MVVM architecture for clean separation of concerns.
+ * Utilises Geolocator and Geodecoder to automatically detect and decode users location.
 
-A few resources to get you started if this is your first Flutter project:
+ ## Planned Features
+ 1. **Location Search ** Implement a search bar allowing users to find weather information for specific locations. (Target version 1.1)
+ 2. **Enhanced UI **- This is a temporary UI for me to Test out functioning of API. A Great UI On the way!!
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ Note: This is my first project utilizing MVVM and interacting with a REST API. While functional, it is a learning exercise and there's considerable space for improvement in terms of code structure, error handling, and potential feature expansion.
