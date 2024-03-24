@@ -9,6 +9,8 @@ class LocationProvider with ChangeNotifier {
   final LocationDecode _locationDecode = LocationDecode();
   Placemark? _currentLocationName;
   String? city;
+  double? lat;
+  double? lng;
 
   Future<void> determinePosition() async {
     bool serviceEnabled;
@@ -32,6 +34,12 @@ class LocationProvider with ChangeNotifier {
       _currentPosition = null;
     }
     _currentPosition = await Geolocator.getCurrentPosition();
+
+    if (_currentPosition != null) {
+      lat = _currentPosition?.latitude;
+      lng = _currentPosition?.longitude;
+      notifyListeners();
+    }
 
     _currentLocationName = await _locationDecode.getLocation(_currentPosition);
     if (_currentLocationName != null) {

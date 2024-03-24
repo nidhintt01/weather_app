@@ -11,7 +11,7 @@ class WeatherAnimation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<WeatherServiceProvider>(builder: (context, value, child) => 
       SvgPicture.asset(
-        weather[value.weather!.weather![0].main!]!,
+        weather[value.weather?.weather?[0].main]??weather["Default"]!,
         height: 300,
       ),
     );

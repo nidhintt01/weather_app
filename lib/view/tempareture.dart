@@ -25,7 +25,7 @@ class Tempareture extends StatelessWidget {
                 Consumer<WeatherServiceProvider>(
                   builder: (context, value, child) => TextWidget(
                       data:
-                          "${value.weather!.main!.tempMin!.toStringAsFixed(0)}\u00B0c",
+                          "${value.weather?.main?.tempMin?.toStringAsFixed(0)}\u00B0c",
                       style: GoogleFonts.akatab(
                           color: Colors.white, fontSize: 20)),
                 )
@@ -40,7 +40,7 @@ class Tempareture extends StatelessWidget {
                 Consumer<WeatherServiceProvider>(
                   builder: (context, value, child) => TextWidget(
                       data:
-                          "${value.weather!.main!.tempMax!.toStringAsFixed(0)}\u00B0c",
+                          "${value.weather?.main?.tempMax?.toStringAsFixed(0)}\u00B0c",
                       style: GoogleFonts.akatab(
                           color: Colors.white, fontSize: 20)),
                 )
@@ -48,7 +48,9 @@ class Tempareture extends StatelessWidget {
             )
           ],
         ),
-        const SizedBox(height: 20,)
+        const SizedBox(
+          height: 20,
+        )
       ],
     );
   }

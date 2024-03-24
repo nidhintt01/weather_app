@@ -4,10 +4,11 @@ String logo = "assets/images/logo.png";
 
 Map<String, String> weather = {
   "snow": 'assets/weather/snow.svg',
-  "Mist": 'assets/weather/rain.svg',
-  "Clear": 'assets/weather/drizzle.svg',
+  "Rain": 'assets/weather/rain.svg',
+  "Clear": 'assets/weather/clear.svg',
   "Clouds": 'assets/weather/clouds.svg',
   "lowtemp": 'assets/weather/lowtemp.svg',
   "hightemp": 'assets/weather/hightemp.svg',
-  "default": 'assets/weather/default.svg',
+  "Default": 'assets/weather/default.svg',
+  "Smoke": 'assets/weather/smoke.svg',
 };

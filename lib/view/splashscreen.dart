@@ -21,14 +21,11 @@ class _SplashScreenState extends State<SplashScreen> {
     final locationProvider =
         Provider.of<LocationProvider>(context, listen: false);
     locationProvider.determinePosition().then((value) {
-      if (locationProvider.city != null) {
-        var city = locationProvider.city;
-        if (city != null) {
-          Provider.of<WeatherServiceProvider>(context, listen: false)
-              .fetchWeatherDataByCity(city);
-          Provider.of<HourlyWeatherProvider>(context, listen: false)
-              .fetchHourlyDataByCity(city);
-        }
+      if (locationProvider.lat != null && locationProvider.lng != null) {
+        Provider.of<WeatherServiceProvider>(context, listen: false)
+            .fetchWeatherDataByCity(locationProvider.lat!,locationProvider.lng!);
+        Provider.of<HourlyWeatherProvider>(context, listen: false)
+            .fetchHourlyWeatherByCity(locationProvider.lat!,locationProvider.lng!);
       }
     });
   }

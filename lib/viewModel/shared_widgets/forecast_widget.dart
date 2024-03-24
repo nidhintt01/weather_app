@@ -6,8 +6,8 @@ import 'package:weather_app/viewModel/shared_widgets/text.dart';
 import 'package:weather_app/models/data/assets.dart';
 
 class ForecastWidget extends StatelessWidget {
-  final String? timestamp;
-  final String? weatherInfo;
+  final String timestamp;
+  final String weatherInfo;
 
   const ForecastWidget(
       {super.key, required this.timestamp, required this.weatherInfo});
@@ -15,7 +15,7 @@ class ForecastWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String hour =
-        DateFormat('h a').format(DateTime.parse(timestamp!)).toString();
+        DateFormat('h a').format(DateTime.parse(timestamp)).toString();
     final double width = MediaQuery.of(context).size.width * 0.2;
 
     return Padding( 
@@ -38,12 +38,12 @@ class ForecastWidget extends StatelessWidget {
                       GoogleFonts.aBeeZee(fontSize: 18, color: Colors.white)),
             ),
             SvgPicture.asset(
-              weather[weatherInfo]!,
+              weather[weatherInfo]??weather["Default"]!,
               height: 30,
               width: 30,
             ),
             TextWidget(
-                data: weatherInfo!,
+                data: weatherInfo,
                 style: GoogleFonts.aBeeZee(fontSize: 18, color: Colors.white))
           ],
         ),

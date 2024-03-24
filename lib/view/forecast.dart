@@ -13,12 +13,12 @@ class Forecast extends StatelessWidget {
       builder: (context, value, child) => Container(
         height: height,
         child: ListView.builder(
-            itemCount: value.hourly!.cnt,
+            itemCount: value.hourly?.cnt??0,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return ForecastWidget(
-                  timestamp: value.hourly!.list![index].dtTxt,
-                  weatherInfo: value.hourly!.list![index].weather![0].main);
+                  timestamp: value.hourly?.list?[index].dtTxt??"Not avaliable",
+                  weatherInfo: value.hourly?.list?[index].weather?[0].main??"Not avaliable");
             }),
       ),
     );
