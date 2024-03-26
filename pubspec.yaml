@@ -40,9 +40,10 @@ dependencies:
   google_fonts: ^6.1.0
   flutter_svg: ^2.0.10+1
   http: ^1.2.1
-  geocoding: ^2.2.0
+  geocoding: ^3.0.0
   geolocator: ^11.0.0
   uuid: ^4.3.3
+  flutter_dotenv: ^5.1.0
   
 
 dev_dependencies:
@@ -71,6 +72,7 @@ flutter:
   assets:
     - assets/images/
     - assets/weather/
+    - secret/api_endpoints.env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

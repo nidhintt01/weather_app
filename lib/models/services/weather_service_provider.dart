@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:weather_app/models/secrets/api_endpoints.env';
 import 'package:weather_app/models/weather_model/weather_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:weather_app/models/secrets/api_endpoints.dart';
 
 class WeatherServiceProvider with ChangeNotifier {
   WeatherModel? _weather;
-  WeatherModel? get weather => _weather;
+  WeatherModel? get weather => _weather;          
 
   bool _isLoading = false;
   bool get isLoading => _isLoading;
