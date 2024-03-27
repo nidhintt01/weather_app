@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/models/data/assets.dart';
+import 'package:weather_app/model/data/assets.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/models/services/hourly_weather_provider.dart';
-import 'package:weather_app/models/services/location_service_provider.dart';
-import 'package:weather_app/models/services/weather_service_provider.dart';
+import 'package:weather_app/model/services/hourly_weather_provider.dart';
+import 'package:weather_app/model/services/location_service_provider.dart';
+import 'package:weather_app/model/services/weather_service_provider.dart';
 import 'package:weather_app/view/home_screen.dart';
-import 'package:weather_app/viewModel/splash_screen_view_model.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,29 +14,36 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  bool isLoading=false;
   @override
   void initState() {
     super.initState();
     final locationProvider =
-        Provider.of<LocationProvider>(context, listen: false);
+        Provider.of<LocationProvider>(context,listen: false);
     locationProvider.determinePosition().then((value) {
       if (locationProvider.lat != null && locationProvider.lng != null) {
         Provider.of<WeatherServiceProvider>(context, listen: false)
-            .fetchWeatherDataByCity(locationProvider.lat!,locationProvider.lng!);
+            .fetchWeatherDataByCity(
+                locationProvider.lat!, locationProvider.lng!);
         Provider.of<HourlyWeatherProvider>(context, listen: false)
-            .fetchHourlyWeatherByCity(locationProvider.lat!,locationProvider.lng!);
+            .fetchHourlyWeatherByCity(
+                locationProvider.lat!, locationProvider.lng!);
       }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final splashProvider = context.watch<SplashScreenViewModel>();
-
-    if (splashProvider.loading) {
-      splashProvider.initialize();
-      return Center(
-        child: Image.asset(logo, width: 200, height: 200),
+    if (isLoading==true) {
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Image.asset(logo, width: 200, height: 200),
+          ),
+          const Padding(padding: EdgeInsets.only(top: 150, bottom: 20)),
+          const CircularProgressIndicator()
+        ],
       );
     } else {
       return const Home();

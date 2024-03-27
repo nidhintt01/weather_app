@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/models/data/assets.dart';
-import 'package:weather_app/models/services/weather_service_provider.dart';
+import 'package:weather_app/model/data/assets.dart';
+import 'package:weather_app/model/services/weather_service_provider.dart';
 import 'package:weather_app/viewModel/shared_widgets/text.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

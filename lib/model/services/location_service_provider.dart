@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
-import 'package:weather_app/models/services/location_decode.dart';
+import 'package:weather_app/model/services/location_decode.dart';
 
 class LocationProvider with ChangeNotifier {
   Position? _currentPosition;
@@ -11,8 +11,12 @@ class LocationProvider with ChangeNotifier {
   String? city;
   double? lat;
   double? lng;
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
 
   Future<void> determinePosition() async {
+    bool _isLoading = true;
+    //notifyListeners();
     bool serviceEnabled;
     LocationPermission permission;
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
@@ -34,6 +38,11 @@ class LocationProvider with ChangeNotifier {
       _currentPosition = null;
     }
     _currentPosition = await Geolocator.getCurrentPosition();
+
+    if (_currentPosition == null) {
+      _isLoading = false;
+      notifyListeners();
+    }
 
     if (_currentPosition != null) {
       lat = _currentPosition?.latitude;

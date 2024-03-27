@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:weather_app/models/secrets/api_endpoints.dart';
+import 'package:weather_app/model/secrets/api_endpoints.dart';
 
 
 class WeatherDataFromPlaces with ChangeNotifier {
@@ -9,10 +9,11 @@ class WeatherDataFromPlaces with ChangeNotifier {
   double? lng;
 
   String error = "";
-  bool isLoading = false;
+  bool _isLoading = false;
+  bool get isLoading=>_isLoading;
 
   Future getCoordinates(String placeId, BuildContext context) async {
-    isLoading = true;
+    _isLoading = true;
     notifyListeners();
 
     String url =
@@ -38,7 +39,7 @@ class WeatherDataFromPlaces with ChangeNotifier {
       error = "failed to load data";
       print("$e");
     } finally {
-      isLoading = false;
+      _isLoading = false;
       notifyListeners();
     }
   }

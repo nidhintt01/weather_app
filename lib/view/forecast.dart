@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/models/services/hourly_weather_provider.dart';
+import 'package:weather_app/model/services/hourly_weather_provider.dart';
 import 'package:weather_app/viewModel/shared_widgets/forecast_widget.dart';
 
 class Forecast extends StatelessWidget {

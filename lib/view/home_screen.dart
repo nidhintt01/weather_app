@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:weather_app/models/navigation/routes.dart';
+import 'package:weather_app/model/navigation/routes.dart';
 import 'package:weather_app/view/forecast.dart';
 import 'package:weather_app/view/tempareture.dart';
 import 'package:weather_app/view/location_indicator.dart';

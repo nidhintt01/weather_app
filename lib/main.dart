@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/models/services/hourly_weather_provider.dart';
-import 'package:weather_app/models/services/location_service_provider.dart';
-import 'package:weather_app/models/services/location_suggestion_provider.dart';
-import 'package:weather_app/models/services/weather_data_from_places.dart';
-import 'package:weather_app/models/services/weather_service_provider.dart';
+import 'package:weather_app/model/services/hourly_weather_provider.dart';
+import 'package:weather_app/model/services/location_service_provider.dart';
+import 'package:weather_app/model/services/location_suggestion_provider.dart';
+import 'package:weather_app/model/services/weather_data_from_places.dart';
+import 'package:weather_app/model/services/weather_service_provider.dart';
 import 'package:weather_app/view/splashscreen.dart';
-import 'package:weather_app/viewModel/splash_screen_view_model.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-
 Future main() async {
-  await dotenv.load(fileName:'secret/api_endpoints.env');
+  await dotenv.load(fileName: 'secret/api_endpoints.env');
 
   runApp(
     MultiProvider(providers: [
-      ChangeNotifierProvider(
-        create: (context) => SplashScreenViewModel(),
-      ),
       ChangeNotifierProvider(
         create: (context) => LocationProvider(),
       ),

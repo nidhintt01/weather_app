@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/viewModel/shared_widgets/text.dart';
-import 'package:weather_app/models/data/assets.dart';
+import 'package:weather_app/model/data/assets.dart';
 
 class ForecastWidget extends StatelessWidget {
   final String timestamp;

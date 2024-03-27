@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:weather_app/models/weather_model/hourly_data.dart';
+import 'package:weather_app/model/weather_model/hourly_data.dart';
 import 'package:http/http.dart' as http;
-import 'package:weather_app/models/secrets/api_endpoints.dart';
+import 'package:weather_app/model/secrets/api_endpoints.dart';
 
 class HourlyWeatherProvider with ChangeNotifier {
   WeatherResponse? _hourly;

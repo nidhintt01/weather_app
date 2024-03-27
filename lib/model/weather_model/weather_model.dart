@@ -52,8 +52,8 @@ class WeatherModel {
 }
 
 class Coord {
-  double? lon;
-  double? lat;
+  num? lon;
+  num? lat;
 
   Coord({this.lon, this.lat});
 
@@ -80,8 +80,8 @@ class Weather {
 }
 
 class Main {
-  double? temp;
-  double? feelsLike;
+  num? temp;
+  num? feelsLike;
   num? tempMin;
   num? tempMax;
   int? pressure;

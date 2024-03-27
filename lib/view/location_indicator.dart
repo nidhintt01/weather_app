@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/models/services/location_service_provider.dart';
+import 'package:weather_app/model/services/location_service_provider.dart';
 import 'package:weather_app/viewModel/shared_widgets/text.dart';
 
 class Location extends StatelessWidget {
