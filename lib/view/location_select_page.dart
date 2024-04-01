@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
-import 'package:weather_app/model/services/hourly_weather_provider.dart';
+import 'package:weather_app/model/services/forecast_provider.dart';
 import 'package:weather_app/model/services/location_service_provider.dart';
 import 'package:weather_app/model/services/location_suggestion_provider.dart';
 import 'package:weather_app/model/services/weather_data_from_places.dart';
@@ -44,8 +44,8 @@ class _LocationSelectPageState extends State<LocationSelectPage> {
         Provider.of<WeatherDataFromPlaces>(context);
     final weatherProvider =
         Provider.of<WeatherServiceProvider>(context, listen: false);
-    final hourlyProvider =
-        Provider.of<HourlyWeatherProvider>(context, listen: false);
+    final forecastProvider =
+        Provider.of<ForecastProvider>(context, listen: false);
 
     final LocationProvider locationProvider =
         Provider.of<LocationProvider>(context, listen: false);
@@ -57,6 +57,9 @@ class _LocationSelectPageState extends State<LocationSelectPage> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
       ),
       body: Stack(
         children: [
@@ -130,7 +133,7 @@ class _LocationSelectPageState extends State<LocationSelectPage> {
                                                         40.7128,
                                                     weatherDataFromPlaces.lng ??
                                                         74.0060);
-                                            await hourlyProvider
+                                            await forecastProvider
                                                 .fetchHourlyWeatherByCity(
                                                     weatherDataFromPlaces.lat ??
                                                         40.7128,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/model/data/assets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -10,10 +11,7 @@ class WeatherAnimation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<WeatherServiceProvider>(builder: (context, value, child) => 
-      SvgPicture.asset(
-        weather[value.weather?.weather?[0].main]??weather["Default"]!,
-        height: 300,
-      ),
+      LottieBuilder.asset(weatherLottie['Thunderstorm']!,height: 300,)
     );
   }
 }

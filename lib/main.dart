@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/model/services/hourly_weather_provider.dart';
+import 'package:weather_app/model/services/forecast_provider.dart';
 import 'package:weather_app/model/services/location_service_provider.dart';
 import 'package:weather_app/model/services/location_suggestion_provider.dart';
 import 'package:weather_app/model/services/weather_data_from_places.dart';
@@ -20,7 +20,7 @@ Future main() async {
         create: (context) => WeatherServiceProvider(),
       ),
       ChangeNotifierProvider(
-        create: (context) => HourlyWeatherProvider(),
+        create: (context) => ForecastProvider(),
       ),
       ChangeNotifierProvider(
         create: (context) => LocationSuggestionProvider(),

@@ -6,7 +6,7 @@ class TextWidget extends StatelessWidget {
 
   final TextStyle style;
 
-  TextWidget({required this.data, required this.style});
+  const TextWidget({super.key, required this.data, required this.style});
 
   @override
   Widget build(BuildContext context) {

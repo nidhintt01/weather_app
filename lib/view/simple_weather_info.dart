@@ -10,28 +10,25 @@ class SimpleWeatherInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("Simple weather info rebuild");
     return Padding(
-      padding: const EdgeInsets.only(top: 20),
-      child: Consumer<WeatherServiceProvider>(
-        builder: (context, value, child) => Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            TextWidget(
-              data: "${value.weather?.main?.temp?.toStringAsFixed(0)}\u00B0c",
-              style: GoogleFonts.roboto(color: Colors.white, fontSize: 70),
-            ),
-            TextWidget(
-              data: value.weather?.weather?[0].main??"Not avaliable",
-              style: GoogleFonts.aBeeZee(color: Colors.white, fontSize: 30),
-            ),
-            TextWidget(
-              data: DateFormat.jm().format(DateTime.now()),
-              style: GoogleFonts.aBeeZee(fontSize: 25, color: Colors.white),
-            ),
-          ],
-        ),
-      ),
-    );
+        padding: const EdgeInsets.only(top: 20),
+        child: Consumer<WeatherServiceProvider>(
+          builder: (context, value, child) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                TextWidget(
+                  data:
+                      "${value.weather?.main?.temp?.toStringAsFixed(0)}\u00B0c",
+                  style: GoogleFonts.roboto(color: Colors.white, fontSize: 70),
+                ),
+                TextWidget(
+                  data: value.weather?.weather?[0].main ?? "Not avaliable",
+                  style: GoogleFonts.aBeeZee(color: Colors.white, fontSize: 30),
+                ),
+              ],
+            );
+          },
+        ));
   }
 }

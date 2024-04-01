@@ -26,6 +26,7 @@ class WeatherServiceProvider with ChangeNotifier {
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         _weather = WeatherModel.fromJson(data);
+        
         print("weather data success");
         notifyListeners();
       } else {

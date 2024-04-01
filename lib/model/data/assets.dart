@@ -1,4 +1,5 @@
 String logo = "assets/images/logo.png";
+String backgroundimage = "assets/images/background.jpg";
 
 //weather info
 
@@ -11,4 +12,22 @@ Map<String, String> weather = {
   "hightemp": 'assets/weather/hightemp.svg',
   "Default": 'assets/weather/default.svg',
   "Smoke": 'assets/weather/smoke.svg',
+};
+
+Map<String, String> weatherLottie = {
+  "Thunderstorm": "assets/weather/thunderstorm.json",
+  "Drizzle": "assets/weather/drizzle.json",
+  "Rain": "",
+  "Snow": "",
+  "Clear": "",
+  "Mist": "",
+  "Smoke": "",
+  "Haze": "",
+  "Dust": "",
+  "Fog": "",
+  "Sand": "",
+  "Ash": "",
+  "Squall": "",
+  "Tornado": "",
+  "Default":""
 };

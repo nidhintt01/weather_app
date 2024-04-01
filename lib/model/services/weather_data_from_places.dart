@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_app/model/secrets/api_endpoints.dart';
 
-
 class WeatherDataFromPlaces with ChangeNotifier {
   double? lat;
   double? lng;
 
   String error = "";
   bool _isLoading = false;
-  bool get isLoading=>_isLoading;
+  bool get isLoading => _isLoading;
 
   Future getCoordinates(String placeId, BuildContext context) async {
     _isLoading = true;

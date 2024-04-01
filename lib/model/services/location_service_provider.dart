@@ -15,7 +15,7 @@ class LocationProvider with ChangeNotifier {
   bool get isLoading => _isLoading;
 
   Future<void> determinePosition() async {
-    bool _isLoading = true;
+    _isLoading = true;
     //notifyListeners();
     bool serviceEnabled;
     LocationPermission permission;

@@ -18,7 +18,7 @@ class Location extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const Icon(
-            Icons.near_me,
+            Icons.location_pin,
             size: 20,
             color: Colors.red,
           ),
@@ -29,7 +29,7 @@ class Location extends StatelessWidget {
                 },
                 child: TextWidget(
                     data: value.city ?? "Unknown Location",
-                    style: GoogleFonts.aBeeZee()));
+                    style: GoogleFonts.aBeeZee(color:Colors.white)));
           })
         ],
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/model/data/assets.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/model/services/hourly_weather_provider.dart';
+import 'package:weather_app/model/services/forecast_provider.dart';
 import 'package:weather_app/model/services/location_service_provider.dart';
 import 'package:weather_app/model/services/weather_service_provider.dart';
 import 'package:weather_app/view/home_screen.dart';
@@ -14,18 +14,18 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  bool isLoading=false;
+  bool isLoading = false;
   @override
   void initState() {
     super.initState();
     final locationProvider =
-        Provider.of<LocationProvider>(context,listen: false);
+        Provider.of<LocationProvider>(context, listen: false);
     locationProvider.determinePosition().then((value) {
       if (locationProvider.lat != null && locationProvider.lng != null) {
         Provider.of<WeatherServiceProvider>(context, listen: false)
             .fetchWeatherDataByCity(
                 locationProvider.lat!, locationProvider.lng!);
-        Provider.of<HourlyWeatherProvider>(context, listen: false)
+        Provider.of<ForecastProvider>(context, listen: false)
             .fetchHourlyWeatherByCity(
                 locationProvider.lat!, locationProvider.lng!);
       }
@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (isLoading==true) {
+    if (isLoading == true) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
